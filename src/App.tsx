@@ -1,19 +1,20 @@
-import React, { Fragment } from 'react'
-import GlobalStyles from './globalStyles'
-import UserList from './components/UserList'
-import Header from './components/Header'
-import ToastList from './components/ToastList'
+import React, { Fragment } from "react";
+import GlobalStyles from "./globalStyles";
+import Users from './containers/Users'
+import Header from './containers/Header'
+import ToastList from "./components/ToastList";
+import { Provider } from "react-redux";
+import store from "./store";
 
 const App = () => (
-  <Fragment>
-    <GlobalStyles />
-    <ToastList toasts={[]} />
-    <Header count={0} />
-    <UserList
-      users={[]}
-      toggleFollow={_user => {}}
-    />
-  </Fragment>
-)
+  <Provider store={store}>
+    <Fragment>
+      <GlobalStyles />
+      <ToastList toasts={[]} />
+      <Header />
+      <Users />
+    </Fragment>
+  </Provider>
+);
 
-export default App
+export default App;
